@@ -19,7 +19,10 @@ public class SpringbootGithubactionsApplication {
 		return "Comparte este video en Linkedin";
 	}
 
-
+	@GetMapping("/compartir")
+	public String compartir() {
+		return "Comparte este video en Linkedin con tus amigos";
+	}
 
 
 
