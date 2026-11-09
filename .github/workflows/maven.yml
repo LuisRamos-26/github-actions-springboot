@@ -30,29 +30,34 @@ jobs:
         if: github.event_name == 'push'
         uses: docker/setup-buildx-action@v3
 
+      
       - name: Validate Docker credentials
         if: github.event_name == 'push'
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          if [ -z "$DOCKER_USERNAME" ] || [ -z "$DOCKER_PASSWORD" ]; then
-            echo "ERROR: Missing Docker credentials"
+          if [ -z "$DOCKER_USERNAME" ]; then
+            echo "ERROR: DOCKER_USERNAME is empty"
             exit 1
           fi
 
-          if [[ "$DOCKER_PASSWORD" == *$'\n'* || "$DOCKER_PASSWORD" == *$'\r'* ]]; then
-            echo "ERROR: Token contains newline characters"
+          if [ -z "$DOCKER_PASSWORD" ]; then
+            echo "ERROR: DOCKER_PASSWORD is empty"
             exit 1
           fi
 
-          if [ "$DOCKER_USERNAME" != "luisramos26" ]; then
-            echo "ERROR: Unexpected Docker username"
+          echo "Username length: ${#DOCKER_USERNAME}"
+          echo "Username has leading/trailing spaces:"
+
+          if [[ "$DOCKER_USERNAME" =~ ^[[:space:]]|[[:space:]]$ ]]; then
+            echo "YES"
             exit 1
+          else
+            echo "NO"
           fi
 
-          echo "Docker credentials are present."
-          echo "Username validation passed."
+          echo "Credentials are present."
 
       - name: Login to Docker Hub
         if: github.event_name == 'push'
