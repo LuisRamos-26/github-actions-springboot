@@ -16,7 +16,7 @@ public class SpringbootGithubactionsApplication {
 
 	@GetMapping("/saludar")
 	public String saludar() {
-		return "Comparte este video en Linkedin";
+		return "Comparte este video en Linkedin!";
 	}
 
 
