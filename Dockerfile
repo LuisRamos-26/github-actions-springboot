@@ -4,4 +4,4 @@ ADD target/api-springboot-new.jar api-springboot-new.jar
 
 LABEL authors="ramos"
 
-ENTRYPOINT ["java", "jar","/api-springboot-new.jar"]
+ENTRYPOINT ["java", "-jar","/api-springboot-new.jar"]
