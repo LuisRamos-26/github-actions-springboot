@@ -14,6 +14,12 @@ public class SpringbootGithubactionsApplication {
 		return "Hi!, Welcome to Spring Boot Github Actions";
 	}
 
+	@GetMapping("/saludar")
+	public String saludar() {
+		return "Comparte este video en Linkedin";
+	}
+
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootGithubactionsApplication.class, args);
