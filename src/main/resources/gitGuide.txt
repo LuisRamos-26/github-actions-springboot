@@ -3,4 +3,7 @@
 git commit -m "commit inicial"
 git remote add origin https://github.com/LuisRamos-26/github-actions-springboot.git
 git push origin main
-.
+
+se crearon dos claves secretas
+DOCKER_USERNAME: usuario de docker hub
+DOCKER_PASSWORD: tocken de acceso generado en dockerhub

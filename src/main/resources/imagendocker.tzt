@@ -1,0 +1,9 @@
+una vez subido la imagen docker procedemos a descargar la imagen y ejecutar el contenedor
+- docker pull luisramos26/api-springboot-image
+
+ejecutamos la imagen para crear el contenedor
+- docker run -p 8080:8080 luisramos26/api-springboot-image
+
+verificamos los endpoint
+localhost:8080/saludar
+localhost:8080/welcome
