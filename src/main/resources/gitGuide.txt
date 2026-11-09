@@ -1,0 +1,5 @@
+ git init
+ git add .
+git commit -m "commit inicial"
+git remote add origin https://github.com/LuisRamos-26/github-actions-springboot.git
+git push origin main
